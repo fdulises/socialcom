@@ -1,0 +1,26 @@
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 3
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 4
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 5
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 6
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 7
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 8
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 9
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 10
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 11
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 12
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 13
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 14
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 15
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 16
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 17
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 18
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 19
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 20
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 21
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 22
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 23
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 24
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_PREF - assumed 'DB_PREF' in C:\xampp\htdocs\socialcom\config\conf_db_tablas.php on line 25
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Notice:  Use of undefined constant DB_CONECTOR - assumed 'DB_CONECTOR' in C:\xampp\htdocs\socialcom\index.php on line 34
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Warning:  require(nucleo/librerias/DB_CONECTOR.php): failed to open stream: No such file or directory in C:\xampp\htdocs\socialcom\index.php on line 34
+[06-Oct-2017 20:30:47 Europe/Berlin] PHP Fatal error:  require(): Failed opening required 'nucleo/librerias/DB_CONECTOR.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\socialcom\index.php on line 34

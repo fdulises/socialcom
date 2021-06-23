@@ -1,0 +1,58 @@
+//Recuperar todas las filas de una tabla
+DB::select('usuarios_mock')->send();
+
+//Recuperar valores de una lista de columnas
+DB::select('usuarios_mock')->columns(['id', 'nickname', 'email'])->send();
+
+//Recuperar informacion usando la clausula where
+DB::select('usuarios_mock')->where('grupo', '=', 2)->send();
+DB::select('usuarios_mock')->where('grupo', '=', 1)->orWhere('grupo', '=', 2)->send();
+
+//Usar condiciones anidadas en la clausula where
+DB::select('usuarios_mock')->where(function( $query ){
+	$query->where('grupo', '=', 1)->orWhere('grupo', '=', 2)
+})->send();
+
+//Busqueda Fullindex
+DB::select('usuarios_mock')
+	->fullTextSearch(['campo1', 'campo2'], 'lorem ipsum dolor', 'score')
+	->send();
+
+//Insertar nuevo registro
+DB::insert('usuarios_mock')
+	->columns(['nickname', 'email', 'registro', 'estado', 'grupo'])
+	->values(['lorem', 'lorem@debred.com', date('Y-m-d'), 3, 1])
+	->send();
+
+//Insertar multiples registros
+DB::insert('usuarios_mock')
+	->columns(['nickname', 'email', 'registro', 'estado', 'grupo'])
+	->values([
+		['lorem', 'lorem@debred.com', date('Y-m-d'), 3, 1],
+		['lorem', 'lorem@debred.com', date('Y-m-d'), 3, 1]
+	])->send();
+
+//Editar registros de una tabla
+DB::update('usuarios_mock')
+	->set(['estado'=>2)
+	->where('nickname', '=', 'lorem')
+	->send();
+
+//Editar registro de multiples tablas con join
+DB::update('usuarios_mock')
+	->leftJoin('usuarios_perfiles_mock', 'id', '=', 'uid')
+	->set(['estado'=>2, 'nombre'=>'sit'])
+	->where('nickname', '=', 'lorem')
+	->send();
+
+//Eliminar registro de una tabla
+DB::delete('usuarios_mock')
+	->where('nickname', '=', 'lorem')
+	->send();
+
+//Eliminar registro de multiples tablas con join
+DB::delete('usuarios_mock')
+	->leftJoin('usuarios_perfiles_mock', 'id', '=', 'uid')
+	->where('nickname', '=', 'lorem')
+	->orWhere('nombre', '=', 'lorem')
+	->send();

@@ -1,0 +1,155 @@
+
+------- Error ordenar por likes ------
+
+1-Archivo tema/sec_busquedda.php linea 61 agregar
+
+	//Arreglar error de ordenar por likes
+	if( isset($opciones['orden']) ){if( $opciones['orden'] == 'likes' ) $opciones['orden'] = 'e.likes';}
+
+
+
+	
+------- Mostrar portada de entrada en facebook ------
+
+1-Archivo tema/tpl/header.tpl agregar dentro de las etiquetas <head></head>
+
+	<meta property="og:url"                content="{pagina_enlace}" />
+	<meta property="og:type"               content="article" />
+	<meta property="og:title"              content="{pagina_titulo}" />
+	<meta property="og:description"        content="{pagina_descrip}" />
+	<meta property="og:image"              content="{pagina_cover}" />
+	
+2-Archivo tema/sec_entrada.php linea 67 agregar
+	
+	$mt->plantilla->setEtiqueta('pagina_enlace', $articulo['articulo_enlace']);
+	$mt->plantilla->setEtiqueta('pagina_cover', $articulo['articulo_portada']);
+	
+3-Archivo config/conf_plantilla.php al final agregar
+
+	$mt->plantilla->setEtiqueta('pagina_cover', '');
+	
+	
+	
+	
+	
+------ Error con comentarios que se envia a revision ------
+
+1-Archivo panel/secciones/configuracion.sec.php linea 120 Buscar:
+
+		<div class="form-sec">
+			<label for="conf_coment">Ajustes de comentarios</label>
+			<select name="conf_coment" id="conf_coment" class="form-in">
+				<option value="0"<?php echo $config['conf_coment'] == 0 ? 'selected': ''; ?>>Pasar por revisón antes de publicar</option>
+				<option value="1"<?php echo $config['conf_coment'] == 1 ? 'selected': ''; ?>>Publicar sin revisar</option>
+			</select>
+		</div>
+		
+2-Remplazar por:
+
+		<div class="form-sec">
+			<label for="conf_coment">Ajustes de comentarios</label>
+			<select name="conf_coment" id="conf_coment" class="form-in">
+				<option value="0"<?php echo $config['conf_coment'] == 0 ? 'selected': ''; ?>>Desactivar comentarios</option>
+				<option value="1"<?php echo $config['conf_coment'] == 1 ? 'selected': ''; ?>>Publicar sin revisar</option>
+				<option value="2"<?php echo $config['conf_coment'] == 0 ? 'selected': ''; ?>>Pasar por revisón antes de publicar</option>
+			</select>
+		</div>
+		
+		
+		
+		
+		
+		
+	
+------- Error en imagen de autor de entrada ------
+
+1-Archivo tema/sec_perfil.php linea 104 Buscar:
+
+	//Damos formato a campos necesarios
+	$articulo['articulo_fecha'] = extras::formatoDate(
+		$articulo['articulo_fecha'], 'd/m/Y'
+	);
+	$articulo['articulo_autor_avatar'] = extras::urlGravatar(
+		$articulo['articulo_autor_email'], 150
+	);
+		
+2-Remplazar por:
+
+	//Damos formato a campos necesarios
+	$articulo['articulo_fecha'] = extras::formatoDate(
+		$articulo['articulo_fecha'], 'd/m/Y'
+	);
+	$articulo['articulo_autor_avatar'] = $user->generateAvatar([
+		'id' => $articulo['articulo_autor_id'],
+		'email' => $articulo['articulo_autor_email'],
+		'size' => 150,
+	]);
+	
+	
+	
+	
+------- Error pagina contacto ------
+
+1-Archivo nucleo/secciones/sec_contacto.php Buscar:
+
+		}
+		
+		echo json_encode($result);
+		exit();
+		
+2-Remplazar por:
+
+			if( $envio ) $result['estado'] = 1;
+		}
+		
+		echo json_encode($result);
+		exit();
+		
+		
+
+
+		
+------- Error al denunciar entrada no aparece en panel ------
+Remplazar archivo tema/js/funciones.min.js por el del script nuevo
+
+
+
+
+------- Error sitemap ------
+Remplazar archivos
+	nucleo/secciones/sec_sitemap.php
+	nucleo/presentacion/tpl/sitemap.tpl
+	nucleo/presentacion/tpl/sitemapindex.tpl
+	
+	
+	
+------- Agregar seccion para agregar medalla manualmente -------
+
+1- Editar archivo tema/tpl/ariculo.tpl y agregar el siguiente codigo donde se desea mostrar la lista
+
+<div class="container mg-sec">
+					{relacionados}
+					<div class="card-t1 gd-25 gd-m-50 gd-s-100">
+						<a href="{articulo_enlace}">
+							<img data-original="{SITIO_URL}/miniatura?w=600&h=600&src={articulo_portada}" />
+							<h3>{articulo_titulo}</h3>
+						</a>
+					</div>
+					{/relacionados}
+					</div>
+					
+					
+2- Editar archivo tema/sec_entrada.php y agregar el siguiente codigo antes de la ultima linea 
+
+$relacionados = extras::htmlentities($mt->getEntrada(array(
+		'columnas' => array(
+			'e.id as articulo_id',
+			'e.titulo as articulo_titulo',
+			'enlace as articulo_enlace',
+			'e.portada as articulo_portada',
+		),
+		'filtro' => 'e.id <> '.$articulo['articulo_id'],
+		'limit' => 4,
+		'order' => 'articulo_id',
+	)));
+	$mt->plantilla->setBloque('relacionados', $relacionados);

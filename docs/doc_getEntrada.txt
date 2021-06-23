@@ -1,0 +1,61 @@
+
+	//Todas las filas con todas sus columnas
+	$mt->getEntrada();
+
+	//Especificar las columnas
+	$mt->getEntrada(array(
+		'columnas' => array('e.titulo', 'e.url')
+	));
+
+	//Una sola entrada por su ID
+	$mt->getEntrada(1);
+	$mt->getEntrada(array('id' => 1))
+
+	//Una sola entrada por su id especificando las columnas
+	$mt->getEntrada(1, array('e.titulo', 'e.url'));
+	$mt->getEntrada(array(
+		'id' => 1,
+		'columnas' => array('e.titulo', 'e.url'),
+	))
+
+	//Obtener una entrada por su URL simple
+	$mt->getEntrada(array(
+		'url' => 'contacto',
+	));
+
+	//Obtener entradas anteriores a la fecha
+	$mt->getEntrada(array(
+		'fecha' => '2016/04/03',
+	));
+
+	//Obtener entradas de una coleccion usando su URL
+	$mt->getEntrada(array(
+		'coleccion_url' => 'cat-1',
+	));
+
+	//Obtener entradas de una coleccion usando su id
+	$mt->getEntrada(array(
+		'coleccion_id' => 35,
+	));
+
+	//Establecer el orden de los resultados
+	$mt->getEntrada(array(
+		'orden' => 'e.fecha_u',
+		'disp' => 'DESC',
+	));
+
+	//Establecer la clausula limit
+	$mt->getEntrada(array(
+		'limit' => 4,
+	));
+	//Establecer la clausula limit con offset
+	$mt->getEntrada(array(
+		'limit' => 4,
+		'offset' => 3,
+	));
+	//Establecer que se requiere el total de filas antes de la clausula limit
+	$mt->getEntrada(array(
+		'limit' => 4,
+		'offset' => 3,
+		'calcular_filas' => true,
+	))

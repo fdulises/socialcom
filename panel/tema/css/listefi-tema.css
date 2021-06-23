@@ -1,0 +1,199 @@
+body{
+	background-color: #f1f4f9;
+}
+.display-flex{
+	display: flex;
+	justify-content: space-between;
+}
+/* ---------- Contenedores --------- */
+.cont-700{max-width: 700px;}
+.cont-400{max-width: 400px;}
+.cont-white {
+    background-color: #fff;
+    padding: 40px;
+}
+/* --------- Cards informativas ---------- */
+.cont-info, .cont-info::after, .cont-info::before {
+    clear: both;
+    content: "";
+    display: table;
+}
+.cont-info {
+    background-color: #ddd;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: block;
+	margin: 10px 0;
+}
+.cont-info .cover, .cont-info .text {
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+.cont-info .text {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+.cont-info h3 {
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    padding-bottom: 6px;
+}
+.cont-info p {
+    font-size: 18px;
+    margin: 0;
+}
+.cont-info .cover {
+	color: #888;
+    font-size: 45px;
+    padding-top: 15px;
+}
+/* ---------- Navegacion principal ----------- */
+body {margin-top: 64px;}
+.nav-bar {
+	width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+}
+.nav-abs {
+	left: 0;
+	min-width: 240px;
+	padding-top: 0px;
+	top: 0;
+	background-color: #fff;
+	font-size: 16px;
+	transition: left 0.5s;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	margin-top: 64px;
+	height: 100%;
+	min-height: 100%;
+	height: calc(100% - 64px);
+	min-height: calc(100% - 64px);
+}
+[data-estado="close"].nav-abs{
+	left:-240px;
+}
+.container-r{
+    margin-left: 240px;
+	transition: margin 0.5s;
+}
+[data-estado="close"].container-r{
+	margin-left: 0;
+}
+@media all and (max-width: 800px){
+	.nav-abs{
+		z-index: 5;
+		left: 0;
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	}
+	[data-estado="close"].nav-abs{left:-240px;}
+	.container-r{margin-left: 0;}
+}
+.nav-abs ul{margin: 0;}
+.nav-abs li{
+	margin: 0;
+	list-style: none;
+}
+.nav-abs li a, .nav-abs li button{
+	color: #666;
+    display: block;
+    padding: 12px 5px 12px 15px;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+	text-align: left;
+	font-size: 1em;
+	cursor: pointer;
+}
+.nav-abs li a:hover, .nav-abs li button:hover{
+	background-color: #e0e0e0;
+}
+/* ---------- Pagina de acceso ---------- */
+#login-form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+#login-form .form-in {
+    margin-top: 0;
+}
+#login-form .form-check {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px 0;
+}
+.fpass-link {
+    padding: 20px 0;
+    text-align: center;
+}
+@media all and (max-width: 400px){
+	#login-form{margin-top: 20px;}
+	.cont-white{padding: 20px;}
+}
+/* --------- Encabezados --------- */
+.header-t1 {
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    font-size: 30px;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+/* --------- Admin panel --------- */
+@media all and (max-width:600px){
+	#actionNav{float:right;}
+}
+.listable .avatar {
+    margin-right: 14px;
+}
+.listable h4 {
+    margin: 0;
+}
+.listable .btn {
+	font-size: 16px;
+}
+.listable .userlist{min-height: 60px;}
+.coment_avatr{display: inline-block; margin-right: 10px}
+.listable .toggle-group {
+	min-height: 0;
+	margin-top: 10px;
+}
+/* --------- Formularios --------*/
+.form-line {
+    align-items: stretch;
+    display: flex !important;
+}
+.form-line .form-in {
+    margin: 0;
+}
+/* --------- --------*/
+.wrap{
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.cell {
+    display: table-cell;
+    height: 3rem;
+    vertical-align: middle;
+}
+/* --------- Paginacion --------*/
+.pagination_s1{text-align: center;}
+.pagination_s1 a {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 2px;
+    padding: 10px 15px;
+}
+.pagination_s1 a.active{font-weight: bold;}

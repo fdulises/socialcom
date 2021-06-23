@@ -1,0 +1,6 @@
+//Obtener un banner que va rotando de un grupo de banners
+$banner = adds::getRotate(['tipo'=>1]);
+if( $banner ) echo $banner['codigo'];
+
+Tipo 1 - 300x250
+Tipo 2 - 720x90

@@ -1,0 +1,1 @@
+/usr/bin/php -q /home/AQUI_USUARIO/public_html/AQUI_CARPETA/index.php url=autosc

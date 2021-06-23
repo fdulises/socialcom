@@ -1,0 +1,50 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} miniatura$
+RewriteCond %{QUERY_STRING} src=$
+RewriteCond %{QUERY_STRING} (w=(.*))*
+RewriteRule  ^miniatura$ miniatura.php?%{QUERY_STRING}http://localhost/socialcom/media/covers/default.jpg
+
+RewriteRule ^miniatura$ miniatura.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)/pagina/([0-9]+)$ index.php?url=$1&pagina=$2 [QSA,L]
+RewriteRule ^@([A-Za-z0-9_\-]+)/(.*)/([0-9]+)$ index.php?url=perfil&usuario=$1&subsec=$2&pagina=$3 [QSA,L]
+RewriteRule ^@([A-Za-z0-9_\-]+)$ index.php?url=perfil&usuario=$1 [QSA,L]
+RewriteRule ^@([A-Za-z0-9_\-]+)/([0-9]+)$ index.php?url=perfil&usuario=$1&pagina=$2 [QSA,L]
+RewriteRule ^@([A-Za-z0-9_\-]+)/(.*)$ index.php?url=perfil&usuario=$1&subsec=$2 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+ErrorDocument 404 /error404
+
+Options All -Indexes
+IndexIgnore *
+<FilesMatch "\.(htaccess|ini|log|cfg|tpl)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+<ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>
+
+SetOutputFilter DEFLATE
+Header unset ETag
+FileETag None
+<FilesMatch "\.(js|css|ico|pdf|jpg|jpeg|png|gif)$">
+Header set Cache-Control "public"
+Header set Expires "Thu, 15 Apr 2020 20:00:00 GMT"
+Header unset Last-Modified
+</FilesMatch>
